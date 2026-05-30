@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura | Audio Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for sleek typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="glass-hub">
+        <header>
+            <h1>AURA <span>VISUALIZER</span></h1>
+            <p>Upload a track and watch the sound.</p>
+        </header>
+
+        <div class="visualizer-container">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <div class="controls">
+            <div class="track-info">
+                <span id="track-name">No track loaded</span>
+            </div>
+            
+            <div class="buttons">
+                <!-- Hidden file input -->
+                <input type="file" id="audio-upload" accept="audio/*" hidden>
+                <button class="btn glow-btn" id="upload-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+                    Load Track
+                </button>
+                
+                <button class="btn play-btn" id="play-btn" disabled>
+                    <svg id="play-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+                    <svg id="pause-icon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <audio id="audio-element" src=""></audio>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

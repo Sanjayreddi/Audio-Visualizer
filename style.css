@@ -1,0 +1,153 @@
+:root {
+    --bg-dark: #09090e;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --neon-cyan: #00f2fe;
+    --neon-pink: #fe0979;
+    --text-main: #ffffff;
+    --text-muted: #8b8b9f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Subtle glowing animated background gradient */
+    background-image: radial-gradient(circle at 15% 50%, rgba(0, 242, 254, 0.08), transparent 25%),
+                      radial-gradient(circle at 85% 30%, rgba(254, 9, 121, 0.08), transparent 25%);
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* Glassmorphism Hub */
+.glass-hub {
+    width: 90%;
+    max-width: 900px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+header h1 span {
+    background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Canvas Area */
+.visualizer-container {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.2);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid var(--glass-border);
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Controls Area */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.track-info {
+    color: var(--neon-cyan);
+    font-weight: 500;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 250px;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--text-main);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Glow Effect for Upload Button */
+.glow-btn {
+    border-color: rgba(0, 242, 254, 0.3);
+}
+
+.glow-btn:hover {
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+}
+
+/* Play Button specialized styling */
+.play-btn {
+    background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+    border: none;
+    padding: 0.8rem;
+    border-radius: 50%;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+.play-btn:hover:not(:disabled) {
+    box-shadow: 0 0 20px rgba(254, 9, 121, 0.5);
+}
